@@ -20,12 +20,12 @@ app.get('/audio/:name', async (req, res) => {
     console.log(stat)
     // set head info about the file
     let type
-    if (filePath.split('.')[1] == 'mp3'){
+    let extendFile = filePath.split('.')[1]
+    if (extendFile == 'mp3')
         type = 'audio/mp3'
-    } else {
+    else if (extendFile == 'ogg')
         type = 'audio/ogg'
-    }
-    
+
 
     res.writeHead(200, {
         'Content-Type': type,

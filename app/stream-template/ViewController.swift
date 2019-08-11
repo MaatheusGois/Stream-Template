@@ -33,11 +33,6 @@ class ViewController: UIViewController {
         let player = sender as? AVPlayer
         if segue.identifier != nil {
             (segue.destination as! AVPlayerViewController).player = player
-//            if segue.identifier! == "play" {
-//                (segue.destination as! AVPlayerViewController).player = player
-//            } else if segue.identifier! == "listen" {
-//                (segue.destination as! AVPlayerViewController).player = player
-//            }
         }
     }
 }
