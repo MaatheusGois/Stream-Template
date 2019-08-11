@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Fv-FW-Fm9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--MovieFlix-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="stream_template" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,21 +18,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0o-dc-KDM">
-                                <rect key="frame" x="169" y="419" width="77" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="SEE MOVIE"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F95-n6-Fn6">
+                                <rect key="frame" x="139.5" y="460" width="135" height="30"/>
+                                <state key="normal" title="LISTEN THE MUSIC"/>
+                                <connections>
+                                    <action selector="listen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xc7-WS-SNG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0o-dc-KDM">
+                                <rect key="frame" x="152" y="401" width="110" height="30"/>
+                                <state key="normal" title="SEE THE MOVIE"/>
                                 <connections>
                                     <action selector="see:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XAo-kH-ofg"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="w0o-dc-KDM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="6xc-ra-F26"/>
+                            <constraint firstItem="F95-n6-Fn6" firstAttribute="top" secondItem="w0o-dc-KDM" secondAttribute="bottom" constant="29" id="frt-km-WuK"/>
+                            <constraint firstItem="F95-n6-Fn6" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gfk-tE-yu7"/>
+                            <constraint firstItem="F95-n6-Fn6" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="kqa-en-Kvw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="pJ0-ar-HUQ"/>
+                    <navigationItem key="navigationItem" title="MovieFlix" id="pJ0-ar-HUQ"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black"/>
                     <connections>
                         <segue destination="vlE-09-qdi" kind="show" identifier="play" id="TJB-0o-Lw9"/>
+                        <segue destination="Oy6-jM-xNi" kind="show" identifier="listen" id="bqH-Ot-KcL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -40,11 +54,17 @@
             <point key="canvasLocation" x="957.97101449275374" y="20.758928571428569"/>
         </scene>
         <!--AV Player View Controller-->
+        <scene sceneID="zpd-56-kDI">
+            <objects>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="Oy6-jM-xNi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2AQ-CC-GnV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="958" y="719"/>
+        </scene>
+        <!--Movie-->
         <scene sceneID="UTM-zN-gmF">
             <objects>
-                <avPlayerViewController storyboardIdentifier="AVPlayer" videoGravity="AVLayerVideoGravityResizeAspect" id="vlE-09-qdi" sceneMemberID="viewController">
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                </avPlayerViewController>
+                <avPlayerViewController storyboardIdentifier="AVPlayer" title="Movie" videoGravity="AVLayerVideoGravityResizeAspect" id="vlE-09-qdi" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4BJ-lg-cKZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1721.7391304347827" y="20.758928571428569"/>
@@ -59,9 +79,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2Qm-R6-DMM"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lLh-Lt-cUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

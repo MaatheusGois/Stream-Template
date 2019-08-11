@@ -19,8 +19,16 @@ app.get('/audio/:name', async (req, res) => {
     // file info
     console.log(stat)
     // set head info about the file
+    let type
+    if (filePath.split('.')[1] == 'mp3'){
+        type = 'audio/mp3'
+    } else {
+        type = 'audio/ogg'
+    }
+    
+
     res.writeHead(200, {
-        'Content-Type': 'audio/ogg',
+        'Content-Type': type,
         'Content-Length': stat.size
     })
     //min the trafic

@@ -11,24 +11,33 @@ import AVKit
 import AVFoundation
 
 class ViewController: UIViewController {
-    let videoURL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")
-    var player:AVPlayer!
+    let videoURL = URL(string: "https://br-stream-app.herokuapp.com/video/video.mp4")
+    let audioURL = URL(string: "https://br-stream-app.herokuapp.com/audio/music.mp3")
+    var videoPlayer:AVPlayer?
+    var audioPlayer:AVPlayer?
     
     @IBAction func see(_ sender: Any) {
-        performSegue(withIdentifier: "play", sender: player)
+        performSegue(withIdentifier: "play", sender: videoPlayer)
+    }
+    @IBAction func listen(_ sender: Any) {
+        performSegue(withIdentifier: "listen", sender: audioPlayer)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.player = AVPlayer(url: videoURL!)
+        self.videoPlayer = AVPlayer(url: videoURL!)
+        self.audioPlayer = AVPlayer(url: audioURL!)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let player = sender as? AVPlayer
         if segue.identifier != nil {
-            if segue.identifier! == "play" {
-                (segue.destination as! AVPlayerViewController).player = player
-            }
+            (segue.destination as! AVPlayerViewController).player = player
+//            if segue.identifier! == "play" {
+//                (segue.destination as! AVPlayerViewController).player = player
+//            } else if segue.identifier! == "listen" {
+//                (segue.destination as! AVPlayerViewController).player = player
+//            }
         }
     }
 }
