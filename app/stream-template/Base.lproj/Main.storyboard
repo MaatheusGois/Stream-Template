@@ -42,7 +42,9 @@
         <!--AV Player View Controller-->
         <scene sceneID="UTM-zN-gmF">
             <objects>
-                <avPlayerViewController storyboardIdentifier="AVPlayer" videoGravity="AVLayerVideoGravityResizeAspect" id="vlE-09-qdi" sceneMemberID="viewController"/>
+                <avPlayerViewController storyboardIdentifier="AVPlayer" videoGravity="AVLayerVideoGravityResizeAspect" id="vlE-09-qdi" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                </avPlayerViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4BJ-lg-cKZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1721.7391304347827" y="20.758928571428569"/>
